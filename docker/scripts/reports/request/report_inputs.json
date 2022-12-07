@@ -1,0 +1,16 @@
+[
+  {
+    "name":"Registered Patients",
+    "sql":"RegisteredPatients",
+    "pivot_column": "Gender",
+    "cell_column":"Sr. No.",
+    "db": "openmrs"
+  },
+  {
+    "name":"Clinic Visits",
+    "sql":"ClinicVisits",
+    "pivot_column": "Visit type",
+    "cell_column":"Age",
+    "db": "openmrs"
+  }
+]
