@@ -1,0 +1,43 @@
+name: Build and Publish bahmni-metabase Image
+on:
+  push:
+    branches: main
+
+jobs:
+
+  Trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Trivy Scan
+        run: ./.github/trivy_scan.sh
+
+  docker-build-publish:
+    name: Docker Build & Publish
+    runs-on: ubuntu-latest
+    needs: Trivy
+    steps:
+      - uses: actions/checkout@v2
+      - name: Verify app version
+        run: |
+          APP_VERSION=$(cat docker/.appversion)
+          if [ $(git tag -l "$APP_VERSION") ]; then 
+            echo "App version $APP_VERSION already released. Please update app version in package/.appversion to represent next major/minor/patch increment"
+            exit 1
+          else
+            echo "setting artifact version to $(echo $APP_VERSION-${{github.run_number}})"
+            echo "ARTIFACT_VERSION=$(echo $APP_VERSION-${{github.run_number}})" >> $GITHUB_ENV
+          fi
+      - name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+      - name: Docker Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: docker/
+          no-cache: true
+          push: true
+          tags: bahmni/bahmni-metabase:${{env.ARTIFACT_VERSION}},bahmni/bahmni-metabase:latest
