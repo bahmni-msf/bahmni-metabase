@@ -31,7 +31,7 @@ then
     then
         echo "\n Admin user created!"
         MB_TOKEN=$(jq -s -r '.[0].id' <<< ${create_admin_response})
-        source /app/scripts/database/add_openmrs_db.sh
+        source /app/scripts/database/add_databases.sh
     fi
 else
     echo 'SETUP_TOKEN not Available'

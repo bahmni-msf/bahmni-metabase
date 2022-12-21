@@ -2,7 +2,7 @@
 
 echo "Adding Collection to Metabase"
 
-collection_response=$(curl -L -w "%{http_code}" -X POST  \
+collection_response=$(curl -s -w "%{http_code}" -X POST  \
        -H "Content-type:application/json" \
        -H "X-Metabase-Session:${MB_TOKEN}" \
        http://${MB_HOST}:${MB_PORT}/api/collection \
