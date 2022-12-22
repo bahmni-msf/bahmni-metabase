@@ -1,0 +1,47 @@
+replicaCount: 1
+
+global:
+  storageClass: ""
+  nodeSelector: {}
+  affinity: {}
+  tolerations: {}
+
+metadata:
+  labels:
+    environment: dev
+
+image:
+  repository: bahmni
+  name: bahmni-metabase
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 3000
+
+config:
+  MB_DB_TYPE: postgres
+  MB_DB_DBNAME: ""
+  MB_DB_PORT:  5432
+  OPENMRS_DB_NAME: "openmrs"
+  OPENMRS_DB_TYPE: "mysql"
+
+secrets:
+  MB_ADMIN_EMAIL: ""
+  MB_ADMIN_FIRST_NAME: ""
+  MB_ADMIN_PASSWORD: ""
+  MB_DB_USER: ""
+  MB_DB_PASS: ""
+  MB_DB_HOST: ""
+  OPENMRS_DB_HOST: ""
+  OPENMRS_DB_USERNAME: ""
+  OPENMRS_DB_PASSWORD: "" 
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+affinity: {}
+tolerations: {}

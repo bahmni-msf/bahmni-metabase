@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-config
+data:
+  MB_DB_TYPE: "{{ .Values.config.MB_DB_TYPE }}"
+  MB_DB_DBNAME: "{{ .Values.config.MB_DB_DBNAME }}"
+  MB_DB_PORT: "{{ .Values.config.MB_DB_PORT }}"
+  OPENMRS_DB_NAME: "{{ .Values.config.OPENMRS_DB_NAME }}"
+  OPENMRS_DB_TYPE: "{{ .Values.config.OPENMRS_DB_TYPE }}"
