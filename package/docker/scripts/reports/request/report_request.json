@@ -1,0 +1,16 @@
+{
+  "name": "name",
+  "collection_id": 0,
+  "dataset_query":{
+    "type": "native",
+    "database":0,
+    "native":{
+      "query":null
+    }
+  },
+  "display":"TABLE",
+  "visualization_settings":{
+    "table.pivot_column": "",
+    "table.cell_column": ""
+  }
+}
