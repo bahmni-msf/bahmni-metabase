@@ -25,6 +25,8 @@ if !(jq -e . >/dev/null 2>&1 <<< $DB_CONNECTIONS); then
     exit 1
 fi
 
+DATABASE_CREATED=false
+
 add_DB_to_metabase(){
     database_response=$(curl -s -w "%{http_code}" -X POST \
     -H "Content-type: application/json" \
@@ -46,6 +48,7 @@ add_DB_to_metabase(){
         id=$(jq -s -r '.[0].id' <<< ${database_response})
         eval "${DB_REF_NAME}=$id"
         echo "$2 Database added to Metabase" 
+        DATABASE_CREATED=true
     else
         echo "error occured while connecting DB : $2" 
     fi
@@ -71,5 +74,8 @@ do
     add_DB_to_metabase  $DB_TYPE $DB_REF_NAME $DB_HOST_NAME $DB_NAME $DB_USERNAME $DB_PASSWORD 
 done
 
- source /app/scripts/metabase/collection/create_metabase_collection.sh
- source /app/scripts/reports/add_reports.sh
+if [ $DATABASE_CREATED == true ]
+then
+    source /app/scripts/metabase/collection/create_metabase_collection.sh
+    source /app/scripts/reports/add_reports.sh
+fi
