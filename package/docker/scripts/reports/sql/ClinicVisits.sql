@@ -2,15 +2,11 @@ SELECT
   DISTINCT(pi.identifier)                                                   AS "Patient Identifier",
   concat(pn.given_name, " ", ifnull(pn.family_name, ""))                    AS "Patient Name",
   floor(DATEDIFF(DATE(v.date_started), p.birthdate) / 365)                  AS "Age",
-  DATE_FORMAT(p.birthdate, "%d-%b-%Y")                                      AS "Birthdate",
   p.gender                                                                  AS "Gender",
   DATE_FORMAT(CONVERT_TZ(p.date_created,'+00:00','+5:30'), "%d-%b-%Y")      AS "Patient Created Date",
   vt.name                                                                   AS "Visit type",
   DATE_FORMAT(CONVERT_TZ(v.date_started,'+00:00','+5:30'), "%d-%b-%Y")      AS "Date started",
   DATE_FORMAT(CONVERT_TZ(v.date_stopped,'+00:00','+5:30'), "%d-%b-%Y")      AS "Date stopped",
-  GROUP_CONCAT(DISTINCT(IF(pat.name = "phoneNumber",pa.value, NULL)))       AS "Phone number",
-  paddress.city_village                                                     AS "City/Village",
-  paddress.state_province                                                   AS "State",
   CASE WHEN v.date_stopped IS NULL THEN "Active"
   ELSE "Inactive"
   END                                                                       AS "Visit Status"
