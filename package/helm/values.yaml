@@ -23,8 +23,8 @@ config:
   MB_DB_TYPE: postgres
   MB_DB_DBNAME: ""
   MB_DB_PORT:  5432
-  OPENMRS_DB_NAME: "openmrs"
-  OPENMRS_DB_TYPE: "mysql"
+  OPENMRS_DB_NAME: openmrs
+  MART_DB_NAME: martdb
 
 secrets:
   MB_ADMIN_EMAIL: ""
@@ -36,6 +36,9 @@ secrets:
   OPENMRS_DB_HOST: ""
   OPENMRS_DB_USERNAME: ""
   OPENMRS_DB_PASSWORD: "" 
+  MART_DB_HOST: ""
+  MART_DB_USERNAME: ""
+  MART_DB_PASSWORD: ""
 
 resources: {}
 

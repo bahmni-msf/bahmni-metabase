@@ -13,6 +13,14 @@ get_db_data()
             "DB_PASSWORD": "${OPENMRS_DB_PASSWORD}",
             "DB_TYPE": "mysql",
             "DB_REF_NAME": "openmrs"
+        },
+        {
+            "DB_HOST": "${MART_DB_HOST}",
+            "DB_NAME": "${MART_DB_NAME}",
+            "DB_USERNAME": "${MART_DB_USERNAME}",
+            "DB_PASSWORD": "${MART_DB_PASSWORD}",
+            "DB_TYPE": "postgres",
+            "DB_REF_NAME": "mart"
         }
     ]
 EOF

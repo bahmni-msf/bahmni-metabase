@@ -7,4 +7,4 @@ data:
   MB_DB_DBNAME: "{{ .Values.config.MB_DB_DBNAME }}"
   MB_DB_PORT: "{{ .Values.config.MB_DB_PORT }}"
   OPENMRS_DB_NAME: "{{ .Values.config.OPENMRS_DB_NAME }}"
-  OPENMRS_DB_TYPE: "{{ .Values.config.OPENMRS_DB_TYPE }}"
+  MART_DB_NAME: "{{ .Values.config.MART_DB_NAME }}"
