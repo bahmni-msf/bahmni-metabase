@@ -1,4 +1,4 @@
-FROM  metabase/metabase:v0.44.6
+FROM  metabase/metabase:v0.45.2
 RUN apk update && apk add curl jq
 COPY scripts /app/scripts
 RUN chmod +x /app/scripts/metabase/*.sh
