@@ -1,0 +1,17 @@
+{
+  "name": "name",
+  "collection_id": 0,
+  "dataset_query": {
+    "type": "native",
+    "database": 0,
+    "native": {
+      "query": null
+    }
+  },
+  "display": "pie",
+  "visualization_settings": {
+    "pie.percent_visibility": "inside",
+    "graph.metrics": "",
+    "graph.dimensions": ""
+  }
+}

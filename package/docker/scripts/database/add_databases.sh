@@ -86,4 +86,5 @@ if [ $DATABASE_CREATED == true ]
 then
     source /app/scripts/metabase/collection/create_metabase_collection.sh
     source /app/scripts/reports/add_reports.sh
+    source /app/scripts/reports/old_vs_new_patient_report.sh
 fi

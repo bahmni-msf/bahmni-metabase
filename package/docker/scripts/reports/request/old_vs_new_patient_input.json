@@ -1,0 +1,9 @@
+[
+  {
+    "name":"Old vs New Patients",
+    "sql":"NumberOfPatients",
+    "db_ref_name":"openmrs",
+    "metrics": ["count"],
+    "dimension": ["type"]
+  }
+]
