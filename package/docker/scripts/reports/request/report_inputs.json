@@ -12,5 +12,12 @@
     "pivot_column": "Visit type",
     "cell_column":"Age",
     "db_ref_name": "openmrs"
+  },
+  {
+    "name":"Number of Diagnosis",
+    "sql":"NoOfDiagnosis",
+    "pivot_column": "coded_diagnosis",
+    "cell_column":"Count",
+    "db_ref_name": "mart"
   }
 ]
