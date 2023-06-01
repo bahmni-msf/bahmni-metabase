@@ -8,3 +8,4 @@ data:
   MB_DB_PORT: "{{ .Values.config.MB_DB_PORT }}"
   OPENMRS_DB_NAME: "{{ .Values.config.OPENMRS_DB_NAME }}"
   MART_DB_NAME: "{{ .Values.config.MART_DB_NAME }}"
+  TZ: "{{ .Values.global.TZ }}"
