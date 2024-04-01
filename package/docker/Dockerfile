@@ -1,6 +1,6 @@
 FROM  metabase/metabase:v0.47.9
 RUN apk update && apk add curl jq
-COPY scripts /app/scripts
+COPY package/docker/scripts /app/scripts
 RUN chmod +x /app/scripts/metabase/*.sh
 RUN chmod +x /app/scripts/metabase/collection/*.sh
 RUN chmod +x /app/scripts/user/*.sh
